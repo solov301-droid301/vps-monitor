@@ -19,7 +19,7 @@ jobs:
 
       - name: Check annovi.pro
         run: |
-          if ! curl -sf --max-time 10 https://annovi.pro > /dev/null; then
+          if ! curl -sf --max-time 10 https://annovi-test-fake-12345.pro > /dev/null; then
             curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" \
               -d chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" \
               -d text="🚨 Сайт annovi.pro недоступен!"
