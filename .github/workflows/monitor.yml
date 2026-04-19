@@ -16,3 +16,27 @@ jobs:
               -d chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" \
               -d text="🚨 VPS 185.212.119.231 недоступен!"
           fi
+
+      - name: Check annovi.pro
+        run: |
+          if ! curl -sf --max-time 10 https://annovi.pro > /dev/null; then
+            curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" \
+              -d chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" \
+              -d text="🚨 Сайт annovi.pro недоступен!"
+          fi
+
+      - name: Check ad-market.ru
+        run: |
+          if ! curl -sf --max-time 10 https://ad-market.ru > /dev/null; then
+            curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" \
+              -d chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" \
+              -d text="🚨 Сайт ad-market.ru недоступен!"
+          fi
+
+      - name: Check agro-pump.com
+        run: |
+          if ! curl -sf --max-time 10 https://agro-pump.com > /dev/null; then
+            curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" \
+              -d chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" \
+              -d text="🚨 Сайт agro-pump.com недоступен!"
+          fi
