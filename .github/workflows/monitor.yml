@@ -25,12 +25,12 @@ jobs:
               -d text="🚨 Сайт annovi.pro недоступен!"
           fi
 
-      - name: Check ad-market.ru
+      - name: Check avd-market.ru
         run: |
-          if ! curl -sf --max-time 10 https://ad-market.ru > /dev/null; then
+          if ! curl -sf --max-time 10 https://avd-market.ru > /dev/null; then
             curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" \
               -d chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" \
-              -d text="🚨 Сайт ad-market.ru недоступен!"
+              -d text="🚨 Сайт avd-market.ru недоступен!"
           fi
 
       - name: Check agro-pump.com
